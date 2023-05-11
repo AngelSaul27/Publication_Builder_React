@@ -13,6 +13,7 @@ export default class HeadingBlock extends Block {
         this.currentData = props;
         const level = props.item.getAttribute("data-level");
         this.clone.nodeRoot.appendChild(this.schemes.getSchemeHeading(level));
+        this.clone.nodeRoot.setAttribute("type", "heading");
         this.newElement = this.clone.node;
     }
 

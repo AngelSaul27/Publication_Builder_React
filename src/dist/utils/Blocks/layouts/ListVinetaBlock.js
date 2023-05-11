@@ -1,8 +1,7 @@
 import Block from "../Block";
 import Schemes from "../Block_Schemes";
 
-export default class ListViñetaBlock extends Block {
-
+export default class ListVinetaBlock extends Block {
     currentData = {};
     newElement = {};
     schemes = new Schemes();
@@ -11,7 +10,8 @@ export default class ListViñetaBlock extends Block {
         super(props);
 
         this.currentData = props;
-        this.clone.nodeRoot.appendChild(this.schemes.getSchemeHeading());
+        this.clone.nodeRoot.appendChild(this.schemes.getSchemeListVinetada());
+        this.clone.nodeRoot.setAttribute("type", "listDisc");
         this.newElement = this.clone.node;
     }
 

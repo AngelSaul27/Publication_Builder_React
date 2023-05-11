@@ -1,5 +1,9 @@
 import TextBlock from "./layouts/TextBlock";
 import HeadingBlock from "./layouts/HeadingBlock";
+import ListVinetaBlock from "./layouts/ListVinetaBlock";
+import ListNumBlock from "./layouts/ListNumBlock";
+import DividerBlock from "./layouts/DividerBlock";
+import HighlightBlock from "./layouts/HighlightBlock";
 
 export default class BlockFactory{
 
@@ -18,6 +22,14 @@ export default class BlockFactory{
                 return new TextBlock(props).render();
             case "heading" :
                 return new HeadingBlock(props).render();
+            case "listDisc" :
+                return new ListVinetaBlock(props).render();
+            case "listDecimal" :
+                return new ListNumBlock(props).render();
+            case "divider" :
+                return new DividerBlock(props).render();
+            case "highlight" :
+                return new HighlightBlock(props).render();
              default:
                 console.log(`Block ${type} is not supported`);
         }

@@ -89,7 +89,7 @@ export default class Templates{
                                         </span>
                                     </div>
                                 </div>
-                                <div data-dropdown-item="listaVineta" class="flex gap-2 select-none hover:bg-[#3b3d3d] trnasition-all duration-300 p-2 rounded-md cursor-pointer">
+                                <div data-dropdown-item="listDisc" class="flex gap-2 select-none hover:bg-[#3b3d3d] trnasition-all duration-300 p-2 rounded-md cursor-pointer">
                                     <div class="rounded-md bg-white min-w-[40px] min-h-[40px] max-h-[40px] flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 m-auto" viewBox="0 0 24 24">
                                             <path
@@ -106,7 +106,7 @@ export default class Templates{
                                         </span>
                                     </div>
                                 </div>
-                                <div data-dropdown-item="listaNumerada" class="flex gap-2 select-none hover:bg-[#3b3d3d] trnasition-all duration-300 p-2 rounded-md cursor-pointer">
+                                <div data-dropdown-item="listDecimal" class="flex gap-2 select-none hover:bg-[#3b3d3d] trnasition-all duration-300 p-2 rounded-md cursor-pointer">
                                     <div class="rounded-md bg-white min-w-[40px] min-h-[40px] max-h-[40px] flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 m-auto" viewBox="0 0 48 48">
                                             <path
@@ -124,7 +124,7 @@ export default class Templates{
                                         </span>
                                     </div>
                                 </div>
-                                <div data-dropdown-item="divisor" class="flex gap-2 select-none hover:bg-[#3b3d3d] trnasition-all duration-300 p-2 rounded-md cursor-pointer">
+                                <div data-dropdown-item="divider" class="flex gap-2 select-none hover:bg-[#3b3d3d] trnasition-all duration-300 p-2 rounded-md cursor-pointer">
                                     <div class="rounded-md bg-white min-w-[40px] min-h-[40px] max-h-[40px] flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 m-auto" viewBox="0 0 24 24">
                                             <path
@@ -141,7 +141,7 @@ export default class Templates{
                                         </span>
                                     </div>
                                 </div>
-                                <div data-dropdown-item="destacado" class="flex gap-2 select-none hover:bg-[#3b3d3d] trnasition-all duration-300 p-2 rounded-md cursor-pointer">
+                                <div data-dropdown-item="highlight" class="flex gap-2 select-none hover:bg-[#3b3d3d] trnasition-all duration-300 p-2 rounded-md cursor-pointer">
                                     <div class="rounded-md bg-white min-w-[40px] min-h-[40px] max-h-[40px] flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 m-auto" viewBox="0 0 24 24">
                                             <path fill="none" d="M0 0h24v24H0V0z"></path>
