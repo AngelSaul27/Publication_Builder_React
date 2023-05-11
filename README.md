@@ -1,5 +1,5 @@
-# publicationbuilder
- Un constructor de publicaciones es una herramienta que permite crear contenido para publicar en un sitios web. Este constructor incluye funciones para diseñar y personalizar el aspecto del contenido, agregar texto, imágenes, videos y otros elementos multimedia.  Para el desarrolo de este sistema se utiliza React que es una biblioteca de código abierto creada por Facebook que se utiliza para construir interfaces de usuario (UI) en la web. Con React, puedes crear componentes reutilizables que te permiten construir aplicaciones escalables y fáciles de mantener.
+# Sistema de Publicaciones
+Un constructor de publicaciones es una herramienta que permite crear contenido para publicar en un sitios web. Este constructor incluye funciones para diseñar y personalizar el aspecto del contenido, agregar texto, imágenes, videos y otros elementos multimedia.  Para el desarrolo de este sistema se utiliza React que es una biblioteca de código abierto creada por Facebook que se utiliza para construir interfaces de usuario (UI) en la web. Con React, puedes crear componentes reutilizables que te permiten construir aplicaciones escalables y fáciles de mantener.
 # Primeros Pasos (Dependencias) 📕
 
 Para el desarrollo de este sitio web se utilizo la Bibloteca de código abierto React. Create React App es una forma oficial de crear aplicaciones React de una sola página. Ofrece una configuración de compilación moderna sin configuración.
