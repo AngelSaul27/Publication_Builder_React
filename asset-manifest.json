@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Publication_Builder_React/static/css/main.b9aaa2ba.css",
+    "main.js": "/Publication_Builder_React/static/js/main.07f4dd8e.js",
+    "index.html": "/Publication_Builder_React/index.html",
+    "main.b9aaa2ba.css.map": "/Publication_Builder_React/static/css/main.b9aaa2ba.css.map",
+    "main.07f4dd8e.js.map": "/Publication_Builder_React/static/js/main.07f4dd8e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b9aaa2ba.css",
+    "static/js/main.07f4dd8e.js"
+  ]
+}
