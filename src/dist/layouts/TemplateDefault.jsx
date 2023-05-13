@@ -1,7 +1,19 @@
 import { v4 as uuidv4 } from "uuid";
 
 function TemplateDefault (){
-    return <>
+    return (
+    <>
+        <div className="relative dark:bg-[#353434] h-[300px] w-full mb-2 rounded-t-md">
+            <div className="absolute right-2 top-2 text-white bg-gray-800 p-1.5 cursor-pointer rounded-md">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+            </div>
+            <div className="w-full h-full overflow-hidden rounded-t-md">
+                <img className="w-full h-full object-center object-cover" src="img/pexel.jpg" alt="cover" />
+            </div>
+        </div>
+
         <div data-content-editable-root="true" className="relative bg-white dark:bg-[#353434] rounded-sm w-full">
             <div data-block-id={uuidv4()} className="flex items-start">
                 <div data-content-options="true" className="flex gap-1 p-2 opacity-content-options min-w-max">
@@ -23,6 +35,6 @@ function TemplateDefault (){
                 </div>
             </div>
         </div>
-    </>
+    </>)
 }
 export default TemplateDefault

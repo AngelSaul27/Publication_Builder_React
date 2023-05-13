@@ -12,6 +12,7 @@ export default class TextBlock extends Block {
         this.data = props;
         this.clone.nodeRoot.appendChild(this.schemes.getSchemeText());
         this.clone.nodeRoot.setAttribute("type", "text");
+        this.clone.nodeRoot.setAttribute("class", "text-white");
         this.newElement = this.clone.node;
     }
 
