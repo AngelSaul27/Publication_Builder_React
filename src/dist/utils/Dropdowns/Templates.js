@@ -15,7 +15,7 @@ export default class Templates{
 
     OptionsCreator() {
         const HTML = `
-            <div class="rounded-md bg-white dark:bg-[#242424] my-3 py-2"> 
+            <div class="rounded-md bg-white dark:bg-[#242424] py-2"> 
                 <div class="max-w-sm md:max-w-md max-h-64 md:max-h-80 overflow-y-auto dropdownScrll">
                     <div class="w-full h-full p-2">
                         <div class="flex flex-col justify-start gap-2">
@@ -246,7 +246,7 @@ export default class Templates{
 
     OptionsBlock(){
         const HTML = `
-        <div class="rounded-md bg-white dark:bg-[#242424] my-3 py-2">
+        <div class="rounded-md bg-white dark:bg-[#242424] py-2">
             <div class="flex flex-col px-2">
               <input
                 type="search"

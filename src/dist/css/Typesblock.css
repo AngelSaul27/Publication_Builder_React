@@ -17,8 +17,8 @@
 }
 
 [data-block="root"]{
-  min-width: calc(100% - (calc(70px *2)));
-  max-width: calc(100% - (calc(70px *2)));
+  min-width: calc(100% - (calc(40px *2)));
+  max-width: calc(100% - (calc(40px *2)));
 }
 
 .options-block{

@@ -84,32 +84,37 @@ export default class DropdownManager {
     }
 
     setPositionDropdown(trigger, dropdown){
-        const triggerPos = trigger.getBoundingClientRect();
-        const triggerWidth = trigger.getBoundingClientRect().width
-        const menuHeight = dropdown.offsetHeight;
-        const menuWidth = dropdown.offsetWidth;
+        /* Posición relativa del dropdown con respecto al borde superior de la Ventana*/
+        const dropdownTop = dropdown.getBoundingClientRect().top - window.pageYOffset;
+        /* Espacio entre el Content Editble Root y el elemento Main*/
+        const container = trigger.closest(
+          "[data-content-editable-root]"
+        );
+        const mainTop = parseInt(getComputedStyle(container.closest("main")).paddingTop);
+        
+        const containerHeight = container.offsetHeight;
+        const dropdownHeight = dropdown.offsetHeight;
+    
+        /* Ventana */
+        const windowHeight = window.innerHeight;
+        const winPageY = window.pageYOffset;  /*Posición vertical */
 
-        const menuPos = {
-            top: triggerPos.top + trigger.offsetHeight + window.pageYOffset - 80,
+        /* Boton Desencadenante */
+        const triggerLeft = trigger.offsetLeft;
+        const triggerTop = trigger.offsetTop; 
+        const triggerWidth = trigger.offsetWidth;
+        const triggerHeight = trigger.offsetHeight;
+
+        /* Si el dropdown cabe en la ventana posicionamos por encima del trigger */
+        if (dropdownTop + dropdownHeight - mainTop * 2 < windowHeight - winPageY) {
+            dropdown.style.top = triggerTop - triggerHeight + "px";
+        } else {
+            /*Si el dropdown no cabe en la ventana posicionamos por debajo del trigger*/
+            dropdown.style.bottom = containerHeight - triggerTop + "px";
         }
 
-        if((menuPos.top + menuHeight) > (window.innerHeight + window.pageYOffset)) {
-            menuPos.top = triggerPos.top - menuHeight + window.pageYOffset;
-        }
-
-        if (menuPos.top < window.pageYOffset ) {
-            menuPos.top = window.pageYOffset;
-        }
-
-        if (menuWidth > 200){
-            dropdown.style.left = triggerWidth*1.5 + "px";
-        }
-
-        if (menuWidth < 200) {
-            dropdown.style.left = triggerWidth*2.5 + "px";
-        }
-
-        dropdown.style.top = menuPos.top + "px";
+        /* Posición horizontal del menú desplegable con respecto al trigger */
+        dropdown.style.left = triggerLeft + triggerWidth + 10 + "px";
     }
 
     getStateDropdown(){

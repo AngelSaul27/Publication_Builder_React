@@ -16,7 +16,7 @@ function TemplateDefault (){
 
         <div data-content-editable-root="true" className="relative bg-white dark:bg-[#353434] rounded-sm w-full">
             <div data-block-id={uuidv4()} className="flex items-start">
-                <div data-content-options="true" className="flex gap-1 p-2 opacity-content-options min-w-max">
+                <div data-content-options="true" className="flex gap-1 p-2 opacity-content-options min-w-max h-max">
                     <div data-option-create="" className="hover:bg-slate-300 dark:hover:bg-gray-800 dark:text-white options-block">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
