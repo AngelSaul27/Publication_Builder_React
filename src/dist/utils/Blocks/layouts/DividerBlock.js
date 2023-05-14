@@ -11,6 +11,7 @@ export default class DividerBlock extends Block {
 
         this.data = props;
         this.clone.nodeRoot.appendChild(this.schemes.getSchemeDivider());
+        this.clone.nodeRoot.setAttribute("class", "text-white h-[30px]");
         this.clone.nodeRoot.setAttribute("type", "divider");
         this.newElement = this.clone.node;
     }
@@ -23,7 +24,7 @@ export default class DividerBlock extends Block {
         return {
           block: this.newElement,
           editable: editable,
-          type: "text",
+          type: "divider",
           isDefault: false,
         };
     }

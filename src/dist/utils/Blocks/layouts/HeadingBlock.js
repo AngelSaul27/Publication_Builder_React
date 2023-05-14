@@ -28,7 +28,7 @@ export default class HeadingBlock extends Block {
           block: this.newElement,
           editable: editable,
           isDefault: false,
-          type: "text",
+          type: "heading",
         };
     }
 

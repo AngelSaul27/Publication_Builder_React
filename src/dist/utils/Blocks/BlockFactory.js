@@ -42,6 +42,11 @@ export default class BlockFactory{
 
         if (prevBlock) {
             const editable = prevBlock.querySelector("[contentEditable='true']");
+            
+            if(!editable){
+                return
+            }
+
             if (editable.textContent) {
                 const range = document.createRange();
                 range.selectNodeContents(editable);

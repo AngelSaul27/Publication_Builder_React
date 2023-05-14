@@ -53,15 +53,16 @@ export default class Schemes {
   getSchemeDivider(){
     const schemeContainer = document.createElement("div");
     schemeContainer.setAttribute("contentEditable", "false");
+    schemeContainer.setAttribute("class", "h-full flex items-center")
     const schemeHr = document.createElement("hr");
-    schemeHr.setAttribute("class", "dark:border-[#494848]");
+    schemeHr.setAttribute("class", "dark:border-[#494848] w-full");
     schemeContainer.appendChild(schemeHr);
     return schemeContainer;
   }
 
   getSchemeHighlight(){
     const schemeContainer = document.createElement("div");
-    schemeContainer.setAttribute("class", "px-3 py-2 bg-[#BCD6F9] rounded-md");
+    schemeContainer.setAttribute("class", "px-3 py-2 bg-[#474646] rounded-md");
     const schemeEdit = document.createElement("div");
     schemeEdit.setAttribute("contentEditable", "true");
     schemeContainer.appendChild(schemeEdit)

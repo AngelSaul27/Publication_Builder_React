@@ -26,7 +26,7 @@ export default class ListNumBlock extends Block {
           block: this.newElement,
           editable: editable,
           isDefault: false,
-          type: "text",
+          type: "listDecimal",
         };
     }
 }

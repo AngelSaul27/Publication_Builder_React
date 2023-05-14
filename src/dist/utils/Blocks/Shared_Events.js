@@ -17,6 +17,8 @@ export default class SharedEvents{
 
     applyEvents(block) {
         const self = this;
+
+        const editable = block.querySelector('[contentEditable]');
     
         block.addEventListener("click", (e) =>
           self.handleClickOptionBlock(e, block)
@@ -27,6 +29,10 @@ export default class SharedEvents{
         block.addEventListener("mouseout", e => 
             self.handleMouseEventBlock(e, "out")
         );
+
+        editable.addEventListener("keydown", e => {
+            self.handleKeydownEditableBlock(e, block);
+        });
 
         setTippysContent(block);
     }
@@ -62,4 +68,48 @@ export default class SharedEvents{
         }
     }
 
+    //KEYDOWN 
+    handleKeydownEditableBlock(event, block){
+        const previousBlock = block.previousElementSibling;
+        const nextBlock = block.nextElementSibling;
+        const target = "[contentEditable]";
+
+        if (event.keyCode === 40 || event.key === "ArrowDown") {
+            if(nextBlock){
+                let editable = nextBlock.querySelector(target);
+                if(!editable){ return}
+
+                if(editable.getAttribute("contentEditable") === "false"){
+                    const nextNextBlock = nextBlock.nextElementSibling;
+                    editable = nextNextBlock.querySelector(target);
+                    if(!editable){ return}
+                }
+
+                if (editable.innerText) {
+                    const range = document.createRange();
+                    range.selectNodeContents(editable);
+                    range.collapse(false);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
+                editable.focus();
+            }
+        }
+
+        if (event.key === "ArrowUp") {
+            if(previousBlock){
+                let editable = previousBlock.querySelector(target);
+                if(!editable){ return }
+
+                if(editable.getAttribute("contentEditable") === "false"){
+                    const newPrevBlock = previousBlock.previousElementSibling;
+                    editable = newPrevBlock.querySelector(target);
+                    if(!editable){ return}
+                }
+
+                editable.focus();
+            }
+        }
+    }
 }

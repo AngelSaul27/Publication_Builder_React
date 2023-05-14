@@ -99,7 +99,7 @@ export default class Templates{
                                     </div>
                                     <div class="flex flex-col">
                                         <span class="text-white text-[14px]">
-                                            Lista
+                                            Lista Visñetada
                                         </span>
                                         <span class="text-gray-400 text-[13px]">
                                             Lista con vieñetas

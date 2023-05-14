@@ -26,7 +26,7 @@ export default class ListVinetaBlock extends Block {
           block: this.newElement,
           editable: editable,
           isDefault: false,
-          type: "text",
+          type: "listDisc",
         };
     }
 }

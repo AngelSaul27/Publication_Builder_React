@@ -12,7 +12,7 @@ export default class HighlightBlock extends Block {
         this.data = props;
         this.clone.nodeRoot.appendChild(this.schemes.getSchemeHighlight());
         this.clone.nodeRoot.setAttribute("type", "highlight");
-        this.clone.nodeRoot.setAttribute("class", "py-2 text-gray-700 font-semibold");
+        this.clone.nodeRoot.setAttribute("class", "py-2 text-white font-light");
         this.newElement = this.clone.node;
     }
 
@@ -24,7 +24,7 @@ export default class HighlightBlock extends Block {
         return {
           block: this.newElement,
           editable: editable,
-          type: "text",
+          type: "highlight",
           isDefault: false,
         };
     }

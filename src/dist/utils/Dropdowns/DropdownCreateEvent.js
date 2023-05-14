@@ -20,6 +20,16 @@ export function setEventCreateBlock(e, block, item) {
         const result = new BlockFactory().createNewBlock(data);
         if(result){
           new AssignedEvents().assignBlockEvent(result.type, result);
+
+          if(result.type === "divider")
+          {
+            result.type = "text";
+            const newRelsult = new BlockFactory().createNewBlock(result);
+            
+            if (newRelsult) {
+              new AssignedEvents().assignBlockEvent(result.type, newRelsult);
+            }
+          }
         }
     }, 100);
 
