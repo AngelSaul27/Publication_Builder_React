@@ -1,5 +1,5 @@
 import Templates from "./Templates.js";
-import { setEventCreateBlock } from "./DropdownCreateEvent.js";
+import { startCreationBlock } from "./DropdownCreateEvent.js";
 
 export default class DropdownManager {
 
@@ -70,7 +70,7 @@ export default class DropdownManager {
                     item.addEventListener("click", (e) => {
                         if (e.disabled) return;
                         e.disabled = true;
-                        setEventCreateBlock(e, block, item);
+                        startCreationBlock(e, block, item);
                         self.closeDropdown();
                     });
                 });          

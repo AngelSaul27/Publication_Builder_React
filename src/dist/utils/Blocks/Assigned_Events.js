@@ -16,6 +16,7 @@ export default class AssignedEvents {
     }
 
     assignBlockEvent(type, data){
+        /* SIN ASIGNACIÓN DE EVENTOS DE TECLADO */
         if(type !== "divider"){
             this.setKeyboardEvent(type, data);
         }
@@ -33,58 +34,32 @@ export default class AssignedEvents {
                     return 
                 }
 
-                self.createNewTextBlock("text", evt, data);
+                self.createDefaultBlock(evt, data);
             }
 
             if (evt.keyCode === 8 || evt.keyCode === 46) {
-                if(type === "listDisc" || type === "listDecimal"){
-                    self.removeListBlock(data);
-                    return
-                }
-
-                self.removeTextBlock(data);
+                self.removeAnyBlock(data);
             }
         });
     }
 
+    /* CREA UN NUEVO BLOQUE DE TIPO LIST */
     createNewListBlock(event,data){
         event.preventDefault();
         const result = this.factory.createNewBlock(data);
         this.assignBlockEvent(result.type, result);
     }
 
-    removeListBlock(data){
-        const editable = data.editable;
-        const isDefault = data.isDefault;
-        const attribute = editable.getAttribute("contentEditable");
-        
-        if (isDefault){
-            return;
-        }
-
-        if (attribute !== "false") {
-            if (editable.textContent.length !== 0) {
-                return;
-            }
-        }
-
-        const currentTime = new Date().getTime();
-        if (currentTime - this.lastKeyPressedTime < 600) {
-            this.factory.removeCurrentBlock(data.block);
-            this.lastKeyPressedTime = 0;
-            return
-        }
-        this.lastKeyPressedTime = currentTime;
-    }
-
-    createNewTextBlock(type, event, data){
+    /* CREA UN NUEVO BLOQUE DE TIPO TEXT */
+    createDefaultBlock(event, data){
         event.preventDefault();
-        data.type = type;
+        data.type = "text";
         const result = this.factory.createNewBlock(data);
         this.assignBlockEvent(result.type, result);
     }
 
-    removeTextBlock(data){
+    /* REMUEVE CUALQUIER TIPO DE BLOQUE */
+    removeAnyBlock(data){
         const self = this;
         const editable = data.editable;
         const isDefault = data.isDefault;
@@ -94,7 +69,12 @@ export default class AssignedEvents {
             return
         }
 
-        if (attribute === "true" && editable.textContent.length === 0) {
+        if (attribute === "false") {
+            return;
+        }
+
+        if (editable.textContent.length === 0) {
+            /* FUNCIÓN DE BLOCK FACTORY PARA ELIMINAR BLOQUES */
             self.factory.removeCurrentBlock(data.block);
         }
     }

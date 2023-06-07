@@ -9,17 +9,20 @@ export default class ListNumBlock extends Block {
     constructor(props) {
         super(props);
 
+        //DATOS DE ORIGEN
         this.currentData = props;
-        this.clone.nodeRoot.appendChild(this.schemes.getSchemeListNumerada());
+
+        //NUEVOS DATOS CREADOS
+        this.clone.nodeRoot.appendChild(this.schemes.getSchemeListNumerada(props));
         this.clone.nodeRoot.setAttribute("type", "listDecimal");
         this.newElement = this.clone.node;
     }
 
     render() {
         const block = this.currentData.block;
-        block.after(this.newElement);
-
         const editable = this.newElement.querySelector("[contentEditable]");
+        
+        block.after(this.newElement);
         editable.focus();
 
         return {

@@ -30,8 +30,7 @@ export default class BlockFactory{
                 return new DividerBlock(props).render();
             case "highlight" :
                 return new HighlightBlock(props).render();
-             default:
-                console.log(`Block ${type} is not supported`);
+             default: console.log(`Block ${type} is not supported`);
         }
     }
 
