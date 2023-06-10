@@ -1,10 +1,10 @@
 export default class Schemes{
-    getSchemeText() {
-      const schemeText = document.createElement("div");
-      schemeText.setAttribute("contentEditable", "true");
-      schemeText.setAttribute("placeholder", "Escribe aquí");
-      return schemeText;
-    }
+  getSchemeText() {
+    const schemeText = document.createElement("div");
+    schemeText.setAttribute("contentEditable", "true");
+    schemeText.setAttribute("placeholder", "Escribe aquí");
+    return schemeText;
+  }
 
   getSchemeHeading(nivel) {
     const schemeHeading = document.createElement("div");
@@ -27,8 +27,14 @@ export default class Schemes{
 
     if (props.block.querySelector("li")) {
       const list = props.block.querySelector("li");
-      num = parseInt(list.getAttribute("level")) + 1;
-    } else {
+      
+      if (!isNaN(parseInt(list.getAttribute("level")))) {
+        num = parseInt(list.getAttribute("level")) + 1;
+      } else {
+        num = 1;
+      }
+
+    }else{
       num = 1;
     }
 

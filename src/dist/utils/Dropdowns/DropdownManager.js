@@ -1,5 +1,5 @@
 import Templates from "./Templates.js";
-import { startCreationBlock } from "./DropdownCreateEvent.js";
+import { startCreationBlock } from "./DropdownCreateBlock.js";
 
 export default class DropdownManager {
 
