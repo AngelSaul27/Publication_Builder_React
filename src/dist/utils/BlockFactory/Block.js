@@ -11,7 +11,7 @@ export default class Block {
     }
 
     cloneElement(){
-        const newElement = this.props.block.cloneNode(true); // Clone Block
+        const newElement = this.props.Block.cloneNode(true); // Clone Block
         const options = newElement.querySelector('[data-content-options]'); // Clone Block Content Options
         const root = newElement.querySelector('[data-block="root"]'); // Clone Block Root
         const child = root.querySelector('div'); //

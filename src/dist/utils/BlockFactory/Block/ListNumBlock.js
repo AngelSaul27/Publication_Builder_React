@@ -1,7 +1,8 @@
 import Block from "../Block";
-import Schemes from "../Block_Schemes";
+import Schemes from "../BlockSchemes";
 
 export default class ListNumBlock extends Block {
+
     currentData = {};
     newElement = {};
     schemes = new Schemes();
@@ -19,17 +20,17 @@ export default class ListNumBlock extends Block {
     }
 
     render() {
-        const block = this.currentData.block;
+        const block = this.currentData.Block;
         const editable = this.newElement.querySelector("[contentEditable]");
         
         block.after(this.newElement);
         editable.focus();
 
         return {
-          block: this.newElement,
-          editable: editable,
+          Block: this.newElement,
+          Editable: editable,
           isDefault: false,
-          type: "listDecimal",
+          Type: "listDecimal",
         };
     }
 }

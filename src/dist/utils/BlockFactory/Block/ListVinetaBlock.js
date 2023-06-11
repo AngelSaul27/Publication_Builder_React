@@ -1,5 +1,5 @@
 import Block from "../Block";
-import Schemes from "../Block_Schemes";
+import Schemes from "../BlockSchemes";
 
 export default class ListVinetaBlock extends Block {
     currentData = {};
@@ -16,17 +16,17 @@ export default class ListVinetaBlock extends Block {
     }
 
     render() {
-        const block = this.currentData.block;
+        const block = this.currentData.Block;
         block.after(this.newElement);
 
         const editable = this.newElement.querySelector("[contentEditable]");
         editable.focus();
 
         return {
-          block: this.newElement,
-          editable: editable,
-          isDefault: false,
-          type: "listDisc",
+            Block: this.newElement,
+            Editable: editable,
+            isDefault: false,
+            Type: "listDisc",
         };
     }
 }

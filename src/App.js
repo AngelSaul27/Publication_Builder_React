@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
       if (execution) {
-        builder.init();
+        builder.Init();
         execution = false;
       }
   },);

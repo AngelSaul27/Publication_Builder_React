@@ -1,38 +1,52 @@
-import AssignedEvents from "./utils/Blocks/Assigned_Events.js";
+import EventsFactory from './utils/EventFactory/EventsFactory'
 
-export class IndexBuilder{
+const ListBlock = [];
 
-    init(){
-        const root = document.querySelector('[data-content-editable-root]'); // Root
-        
-        if(root == null){
+class IndexBuilder{
+    
+    Init (){
+        const root = document.querySelector("[data-content-editable-root]");
+
+        if (root == null) {
             console.error("please add template default");
             return false;
         }
 
-        const blocks = root.querySelectorAll("[data-block-id]"); // Root -> BlocksID
-
-        if(root.querySelectorAll("[data-block-id]") === null){
-            console.error("please add template block default");
-            return false;
+        if (root.querySelectorAll("[data-block-id]") === null) {
+          console.error("please add template block default");
+          return false;
         }
 
-        blocks.forEach((blocks, index) => this.processCurrentBlocks(blocks, index));
+        const blocks = root.querySelectorAll("[data-block-id]"); // Root -> BlocksID
+        blocks.forEach((Block, Idx) => 
+            this.ExtractDataBlock(Block, Idx)
+        );
     }
 
-    processCurrentBlocks(block, index){
-        const block_Id = block; // Root -> BlockID
-        const block_Root = block_Id.querySelector("[data-block='root']"); // BlockID -> Root
-        const block_Type = block_Root.getAttribute("type"); // Block type
-        const block_Edit = block_Root.querySelector("[contentEditable]"); // Block Editable
-        const is_Default = index === 0 ? true : false; // isDefualt Block
+    ExtractDataBlock(Block, Idx){
+        const BLOCK = Block; // Root -> BlockID
+        const ROOT = BLOCK.querySelector("[data-block='root']"); // BlockID -> Root
+        const TYPE = ROOT.getAttribute("type"); // Block type
+        const EDITABLE = ROOT.querySelector("[contentEditable]"); // Block Editable
+        const ISDEFAULT = Idx === 0 ? true : false; // isDefualt Block
+        const POSITION = Idx; // Position
 
-        new AssignedEvents(block).assignBlockEvent(block_Type, {
-            block: block,
-            root: block_Root,
-            type: block_Type,
-            editable: block_Edit,
-            isDefault: is_Default
-        });
+        const data = {
+            Block : BLOCK, //Bloque
+            Root : ROOT, //Contendor padre del EditBlock
+            Type : TYPE,
+            Editable : EDITABLE,
+            isDefault : ISDEFAULT,
+            Position : POSITION
+        }
+
+        new EventsFactory().setBlockEvent(data);
+
+        ListBlock.push({
+            Position : POSITION,
+            Data : data
+        })
     }
 }
+
+export {IndexBuilder};

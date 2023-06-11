@@ -1,19 +1,18 @@
 export default class Templates{
 
-    listTemplates = {
-    };
+    listTemplates = {};
 
     constructor(){
         if (Templates.instance === "object") {
           return Templates.instance;
         }
 
-        this.listTemplates.text = this.OptionsCreator();
-        this.listTemplates.block = this.OptionsBlock();
+        this.listTemplates.text = this.getTemplateOptionsCreator();
+        this.listTemplates.block = this.getTemplateOptionsEditBlock();
         return (Templates.instance = this);
     }   
 
-    OptionsCreator() {
+    getTemplateOptionsCreator() {
         const HTML = `
             <div class="rounded-md bg-white dark:bg-[#242424] py-2"> 
                 <div class="max-w-sm md:max-w-md max-h-64 md:max-h-80 overflow-y-auto dropdownScrll">
@@ -244,7 +243,7 @@ export default class Templates{
         return dropdown;
     }
 
-    OptionsBlock(){
+    getTemplateOptionsEditBlock(){
         const HTML = `
         <div class="rounded-md bg-white dark:bg-[#242424] py-2">
             <div class="flex flex-col px-2">
@@ -338,7 +337,7 @@ export default class Templates{
         return dropdown;
     }
 
-    getlistTemplate(type){
+    GetlistTemplate(type){
         switch (type){
             case "create_block" : 
                 return  this.listTemplates.text;

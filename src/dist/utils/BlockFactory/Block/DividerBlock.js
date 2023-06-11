@@ -1,5 +1,5 @@
 import Block from "../Block";
-import Schemes from "../Block_Schemes";
+import Schemes from "../BlockSchemes";
 
 export default class DividerBlock extends Block {
     data = {};
@@ -17,15 +17,15 @@ export default class DividerBlock extends Block {
     }
 
     render() {
-        const block = this.data.block;
+        const block = this.data.Block;
         const editable = this.newElement.querySelector("[contentEditable]");
         block.after(this.newElement);
-
+        
         return {
-          block: this.newElement,
-          editable: editable,
-          type: "divider",
-          isDefault: false,
+            Block: this.newElement,
+            Editable: editable,
+            Type: "divider",
+            isDefault: false,
         };
     }
 }

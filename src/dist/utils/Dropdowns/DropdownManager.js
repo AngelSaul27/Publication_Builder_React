@@ -1,5 +1,5 @@
 import Templates from "./Templates.js";
-import { startCreationBlock } from "./DropdownCreateBlock.js";
+import { ItemCreate } from "./ItemCreateBlock.js";
 
 export default class DropdownManager {
 
@@ -13,43 +13,85 @@ export default class DropdownManager {
         }
 
         const self = this;
-        document.addEventListener("click", function (e) {
-            if(!(e.target.hasAttribute("data-content-options") || 
-                e.target.closest("[data-content-options]")))
-            {
-                if(!(e.target.hasAttribute("data-dropdown-content") || 
-                    e.target.closest("[data-dropdown-content]")))
-                {
-                    if (self.triggerEvent && self.stateDropdown) {
-                        self.closeDropdown();
-                    }
-                }
-            }
-        });
-
+        self.HandleWindowEventToModal();
         DropdownManager.intance = self;
     }
 
-    openDropdown(type, trigger, block){
+    HandleWindowEventToModal(){
         const self = this;
-        self.templates = new Templates();
+        document.addEventListener("click", function (e) {
+            const hasOptions = e.target.hasAttribute("data-content-options")
+            const closestOptions = e.target.closest("[data-content-options]")
+
+            if ((hasOptions || closestOptions)) {
+                return 
+            }
+
+            const hasContent = e.target.hasAttribute("data-dropdown-content");
+            const closestContent = e.target.closest("[data-dropdown-content]");
+
+            if (hasContent || closestContent) {
+                return;
+            }
+
+            if (self.triggerEvent && self.stateDropdown) {
+                self.CloseDropdown();
+            }
+        });
+    }
+
+    HandleSelectCreateBlock(item, block){
+        const self = this;
+        const items = item;
+
+        items.forEach((selected) => {
+            selected.addEventListener("click", (e) => {
+
+                if (!e.disabled)
+                {
+                    e.disabled = true;
+                    ItemCreate(e, block, selected);
+                    self.CloseDropdown();
+                }
+                else{ return; }
+
+            });
+        });
+    }
+
+    OpenDropdown(type, trigger, block){
+        const self = this;
 
         if(self.stateDropdown !== false){ return }
-        if(!self.templates.getlistTemplate(type)){ return }
 
-        const dropdown = self.templates.getlistTemplate(type);
+        self.templates = new Templates();
+        if(!self.templates.GetlistTemplate(type)){ return }
+
+        const dropdown = self.templates.GetlistTemplate(type);
+        const items = dropdown.querySelectorAll("[data-dropdown-item]");
         block.after(dropdown);
-        self.setPositionDropdown(trigger, dropdown);
-        self.setEventToDropdown(type, dropdown, block);
+
+        self.SetPositionDropdown(trigger, dropdown);
 
         setTimeout(() => {
             dropdown.classList.add("hover");
             self.stateDropdown = dropdown;
             self.triggerEvent = block;
         }, 50);
+
+        switch (type) {
+            case "create_block":
+                    self.HandleSelectCreateBlock(items, block);
+                break;
+            case "option_block":
+                    
+                break;
+            default:
+            console.log("Event not found")
+        }
     }
 
-    closeDropdown(){
+    CloseDropdown(){
         if(this.stateDropdown !== false){
             const dropdown = this.stateDropdown;
             setTimeout(() => {
@@ -61,29 +103,7 @@ export default class DropdownManager {
         }
     }
 
-    setEventToDropdown(type, dropdown, block){
-        const self = this;
-        switch (type) {
-          case "create_block":
-                const items = dropdown.querySelectorAll("[data-dropdown-item]");
-                items.forEach((item) => {
-                    item.addEventListener("click", (e) => {
-                        if (e.disabled) return;
-                        e.disabled = true;
-                        startCreationBlock(e, block, item);
-                        self.closeDropdown();
-                    });
-                });          
-            break;
-          case "option_block":
-            
-            break;
-          default:
-            return;
-        }
-    }
-
-    setPositionDropdown(trigger, dropdown){
+    SetPositionDropdown(trigger, dropdown){
         /* Posición relativa del dropdown con respecto al borde superior de la Ventana*/
         const dropdownTop = dropdown.getBoundingClientRect().top - window.pageYOffset;
         /* Espacio entre el Content Editble Root y el elemento Main*/
@@ -117,19 +137,19 @@ export default class DropdownManager {
         dropdown.style.left = triggerLeft + triggerWidth + 10 + "px";
     }
 
-    getStateDropdown(){
+    GetStateDropdown(){
         return this.stateDropdown
     }
 
-    setStateDropdown(state){
+    SetStateDropdown(state){
         this.stateDropdown = state;
     }
 
-    getTriggerEvent(){
+    GetTriggerEvent(){
         return this.triggerEvent;
     }
 
-    setTriggerEvent(element){
+    SetTriggerEvent(element){
         this.triggerEvent = element;
     }
 }

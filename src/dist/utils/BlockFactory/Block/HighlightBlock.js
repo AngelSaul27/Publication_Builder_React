@@ -1,5 +1,5 @@
 import Block from "../Block";
-import Schemes from "../Block_Schemes";
+import Schemes from "../BlockSchemes";
 
 export default class HighlightBlock extends Block {
     data = {};
@@ -17,15 +17,16 @@ export default class HighlightBlock extends Block {
     }
 
     render() {
-        const block = this.data.block;
+        const block = this.data.Block;
         const editable = this.newElement.querySelector("[contentEditable]");
         block.after(this.newElement);
         editable.focus();
+
         return {
-          block: this.newElement,
-          editable: editable,
-          type: "highlight",
-          isDefault: false,
+            Block: this.newElement,
+            Editable: editable,
+            Type: "highlight",
+            isDefault: false,
         };
     }
 

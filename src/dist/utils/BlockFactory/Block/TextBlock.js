@@ -1,15 +1,16 @@
 import Block from "../Block";
-import Schemes from "../Block_Schemes";
+import Schemes from "../BlockSchemes";
 
 export default class TextBlock extends Block {
-    data = {};
+
+    currentData = {};
     newElement = "";
     schemes = new Schemes();
 
     constructor(props) {
         super(props);
 
-        this.data = props;
+        this.currentData = props;
         this.clone.nodeRoot.appendChild(this.schemes.getSchemeText());
         this.clone.nodeRoot.setAttribute("type", "text");
         this.clone.nodeRoot.setAttribute("class", "text-white");
@@ -17,16 +18,16 @@ export default class TextBlock extends Block {
     }
 
     render() {
-        const block = this.data.block;
+        const block = this.currentData.Block;
         const editable = this.newElement.querySelector("[contentEditable]");
         block.after(this.newElement);
         editable.focus();
 
         return {
-          block: this.newElement,
-          editable: editable,
-          type: "text",
-          isDefault: false,
+            Block: this.newElement,
+            Editable: editable,
+            isDefault: false,
+            Type: "text",
         };
     }
 }
