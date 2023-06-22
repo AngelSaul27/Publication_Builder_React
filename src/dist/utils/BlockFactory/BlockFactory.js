@@ -4,6 +4,7 @@ import ListVinetaBlock from "./Block/ListVinetaBlock";
 import ListNumBlock from "./Block/ListNumBlock";
 import DividerBlock from "./Block/DividerBlock";
 import HighlightBlock from "./Block/HighlightBlock";
+import ImageBlock from "./Block/ImageBlock"
 
 export default class BlockFactory{
 
@@ -30,6 +31,9 @@ export default class BlockFactory{
                 return new DividerBlock(props).render();
             case "highlight" :
                 return new HighlightBlock(props).render();
+            case "imagen" :
+                const result = new ImageBlock(props).render();
+                return result;
              default: console.log(`Block ${type} is not supported`);
         }
     }

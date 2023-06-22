@@ -1,4 +1,5 @@
 import EventsFactory from './utils/EventFactory/EventsFactory'
+import BlockSave from './utils/BlockFactory/BlockSave';
 
 const ListBlock = [];
 
@@ -42,10 +43,16 @@ class IndexBuilder{
 
         new EventsFactory().setBlockEvent(data);
 
-        ListBlock.push({
-            Position : POSITION,
-            Data : data
-        })
+        if (ISDEFAULT) {
+            new BlockSave().setSaveDefaultBlock(Block.getAttribute("data-block-id"));
+        }
+
+        new BlockSave().setListBlock(
+            ListBlock.push({
+                Position: POSITION,
+                Data: data,
+            })
+        );
     }
 }
 

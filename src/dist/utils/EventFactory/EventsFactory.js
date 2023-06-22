@@ -4,6 +4,7 @@ import ListVineta_Event from "./Blocks/ListVineta_Event";
 import ListNum_Event from "./Blocks/ListNum_Event";
 import Divider_Event from "./Blocks/Divider_Event";
 import Highlight_Event from "./Blocks/Highlight_Event";
+import Image_Event from "./Blocks/Image_Event";
 
 class EventsFactory {
     
@@ -37,7 +38,9 @@ class EventsFactory {
             case "highlight":
                     new Highlight_Event(props).setEvent(); 
                 break;
-
+            case "image":
+                    new Image_Event(props).setEvent();
+                break;
             default:
                 console.log(`Block ${type} is not supported for events`);
         }

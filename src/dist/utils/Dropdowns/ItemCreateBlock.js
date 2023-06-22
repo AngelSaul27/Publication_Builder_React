@@ -18,6 +18,14 @@ function ItemCreate(e, Block, Item) {
         Item: selectItem,
     };
 
+    if (Item.getAttribute("data-dropdown-item") === "imagen") {
+        var URL = null;
+        while(URL === null){
+            URL = prompt("Ingrese una URL", "");
+        }
+        data.Src = URL;
+    }
+
     setTimeout(() => {
         e.disabled = false;
         const result = new BlockFactory().createNewBlock(data);

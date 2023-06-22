@@ -1,5 +1,6 @@
 import Templates from "./Templates.js";
 import { ItemCreate } from "./ItemCreateBlock.js";
+import { DeleteBlock } from "./ItemOptionBlock.js";
 
 export default class DropdownManager {
 
@@ -59,6 +60,22 @@ export default class DropdownManager {
         });
     }
 
+    HandleSelectOptionBlock(item, block){
+        const items = item;
+
+        items.forEach((selected) => {
+            selected.addEventListener("click", (e) => {
+                const type = selected.getAttribute("data-dropdown-item");
+                if(!type){ return false; }
+
+                if(type === "Eliminar"){
+                    DeleteBlock(block);
+                    this.CloseDropdown();
+                }
+            });
+        });
+    }
+
     OpenDropdown(type, trigger, block){
         const self = this;
 
@@ -84,7 +101,7 @@ export default class DropdownManager {
                     self.HandleSelectCreateBlock(items, block);
                 break;
             case "option_block":
-                    
+                    self.HandleSelectOptionBlock(items, block);
                 break;
             default:
             console.log("Event not found")

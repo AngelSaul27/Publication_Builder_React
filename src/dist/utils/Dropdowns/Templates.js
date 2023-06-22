@@ -257,7 +257,7 @@ export default class Templates{
             <div class="max-w-sm md:max-w-md max-h-64 md:max-h-80 overflow-y-auto dropdownScrll">
               <div class="w-full h-full p-2">
                 <div class="flex flex-col justify-start">
-                  <div class="cursor-pointer text-gray-400 flex items-center gap-1 p-2 hover:bg-[#3b3d3d] rounded-md transition-all duration-300">
+                  <div data-dropdown-item="Eliminar" class="cursor-pointer text-gray-400 flex items-center gap-1 p-2 hover:bg-[#3b3d3d] rounded-md transition-all duration-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -274,7 +274,7 @@ export default class Templates{
                     </svg>
                     <span class="text-gray-400 ml-2">Eliminar</span>
                   </div>
-                  <div class="cursor-pointer text-gray-400 flex items-center gap-1 p-2 hover:bg-[#3b3d3d] rounded-md transition-all duration-300">
+                  <div data-dropdown-item="Duplicar" class="cursor-pointer text-gray-400 flex items-center gap-1 p-2 hover:bg-[#3b3d3d] rounded-md transition-all duration-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -291,7 +291,7 @@ export default class Templates{
                     </svg>
                     <span class="text-gray-400 ml-2">Duplicar</span>
                   </div>
-                  <div class="cursor-pointer text-gray-400 flex items-center gap-1 p-2 hover:bg-[#3b3d3d] rounded-md transition-all duration-300">
+                  <div data-dropdown-item="Convertir" class="cursor-pointer text-gray-400 flex items-center gap-1 p-2 hover:bg-[#3b3d3d] rounded-md transition-all duration-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -308,7 +308,7 @@ export default class Templates{
                     </svg>
                     <span class="text-gray-400 ml-2">Convertir en</span>
                   </div>
-                  <div class="cursor-pointer text-gray-400 flex items-center gap-1 p-2 hover:bg-[#3b3d3d] rounded-md transition-all duration-300">
+                  <div data-dropdown-item="Color" class="cursor-pointer text-gray-400 flex items-center gap-1 p-2 hover:bg-[#3b3d3d] rounded-md transition-all duration-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
