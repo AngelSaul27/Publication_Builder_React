@@ -1,26 +1,26 @@
-import React , {useEffect} from 'react';
-import TemplateDefault from "./dist/layouts/TemplateDefault.jsx";
-import { IndexBuilder as Builder } from "./dist/index.js";
+import React from "react";
+import DefaultTemplate from "./dist/layout/default";
+import Builder from "./dist/builder";
 
-var execution = true;
 const builder = new Builder();
+var execution = true;
 
 function App() {
 
-  useEffect(() => {
-      if (execution) {
-        builder.Init();
-        execution = false;
-      }
-  },);
+    React.useEffect(() => {
+        if (execution) {
+            builder.Init();
+            execution = false;
+        }
+    });
 
-  return (
-    <>
-      <main className="flex flex-col items-center max-w-screen-2xl bg-[#F1F3F6] dark:bg-[#191919] min-h-screen p-[2%] px-[2%] md:px-[10%]">
-        <TemplateDefault />
-      </main>
-    </>
-  ); 
+    return (
+        <>
+            <main className="flex flex-col items-center max-w-screen-2xl bg-[#F1F3F6] dark:bg-[#191919] min-h-screen p-[2%] px-[2%] md:px-[10%]">
+                <DefaultTemplate />
+            </main>
+        </>
+    );
 }
 
 export default App;

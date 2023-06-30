@@ -1,12 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import "./css/App.css";
-import "./dist/css/Typesblock.css"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App"; //Aplication
+import "./css/app.css"; //Tailwind
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
 );
